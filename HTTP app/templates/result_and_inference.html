@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Results</title>
+	<link rel="stylesheet" type="text/css"  href="style.css">
+</head>
+<body>
+
+	<div class = 'intro'>
+		<h1>Predicted Defaulting Risk</h1>
+		<h2>Given Client with SK_ID_CURR = {{sk_id_curr}}</h2>
+
+
+	</div>
+	<div class = 'table-stats'>
+		{% for table in tables %}
+            {{ table|safe }}
+		{% endfor %}
+
+	</div>
+
+	<div class = 'result'>
+		<h1>Based on the model's prediction, the Client is <b><u>{{output_class}}</u></b> with a probability of <b><u>{{output_proba}}%</u></b>.</h1>
+
+		<form id = 'go-back' method = 'post' action = '/home'>
+			<input type = 'submit' class = 'back submit' value = 'Make Another Prediction'>
+		</form>
+	</div>
+
+</body>
+</html>
